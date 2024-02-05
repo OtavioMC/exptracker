@@ -179,7 +179,7 @@
                                           <tr>
                                               <td><?= $expense['operationDate'] ?></td>
                                               <td><?= $expense['description'] ?></td>
-                                              <td><?= $expense['value'] ?></td>
+                                              <td><?= "$" . number_format((float)$expense['value'], 2, ',', '')?></td>
                                               <td>
                                                   <button type="button" class="btn btn-warning" onclick="sendData('<?= $expense['id'] ?>', '<?= $expense['operationDate'] ?>', '<?= $expense['description'] ?>', '<?= $expense['value'] ?>')"><i class="fas fa-edit"></i></button>
                                                   <button type="button" class="btn btn-danger"  onclick="deleteData(<?= $expense['id'] ?>)"><i class="fas fa-trash"></i></button>
@@ -227,7 +227,6 @@
             let opDate = document.getElementById('operation-date').value;
             let description = document.getElementById('expense-description').value;
             let value = Math.abs(document.getElementById('expense-value').value);
-            value = value.toFixed(2);
 
             var data = {
                 id : id,
